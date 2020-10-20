@@ -1,0 +1,56 @@
+\include{config}
+\usepackage[colorinlistoftodos, ngerman]{todonotes}\setlength{\marginparwidth}{2cm}\reversemarginpar
+\setlength{\bibitemsep}{10pt plus 0.3ex}
+\newcommand{\insertref}[1]{\todo[color=green!40]{#1}}
+\newcommand{\rewritetxt}[1]{\todo[color=blue!50]{#1}}
+\newcommand{\layout}[1]{\todo[color=red!50]{#1}}
+\interfootnotelinepenalty=10000
+\begin{document}
+\include{titelpage}
+\tableofcontents
+\setcounter{page}{1}
+%Abbildungsverzeichnis und Tabellenverzeichnis einfügen
+\newpage
+\listoffigures
+\newpage
+\listoftables
+\newpage
+\setcounter{secnumdepth}{-1}
+\section{Abkürzungsverzeichnis}
+\begin{acronym}[Bash]
+ \acro{JK-FlipFlop}{Jack Kilby FlipFlop}
+\end{acronym}
+\newpage
+
+ 
+\setcounter{secnumdepth}{2}
+%Beginn der Einleitung
+\section{Einleitung} 
+
+
+\newpage
+
+\section{Konzeptionelle Grundlagen}
+\subsection{Punkt 1}
+
+\newpage
+\section{Hauptteil}
+\subsection{Punkt 1} \label{Punkt1}
+
+\section{Zusammenfassung}
+
+
+%\newpage
+%\appendix
+%\section{Anhang}
+
+%Literaturverzeichnis
+\newpage
+
+\printbibliography[title=Literaturverzeichnis]
+%Eidesstattliche Erklärung
+\newpage
+\section*{Eidesstattliche Erklärung}
+„Ich versichere, dass ich das beiliegende Assignment selbstständig verfasst, keine anderen als die angegebenen Quellen und Hilfsmittel benutzt sowie alle wörtlich oder sinngemäß übernommenen Stellen in der Arbeit gekennzeichnet habe.“ 
+\end{document}
+

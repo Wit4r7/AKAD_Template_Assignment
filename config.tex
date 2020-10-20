@@ -1,0 +1,86 @@
+\documentclass[
+    12pt,
+    a4paper,
+    headinclude,
+    footinclude,
+    listof=totoc,
+    toc=sectionentrywithdots,
+    bibliography=totoc
+    ]{scrartcl}
+
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+
+\usepackage[onehalfspacing]{setspace} % 1,5facher Zeilenabstand 
+\usepackage[a4paper, top=3cm,bottom=3cm,left=2.5cm,right=2cm]{geometry} 
+\usepackage{graphicx}
+\usepackage{parskip} %Abstand zwischen Abständen
+\setlength\parindent{0pt} %Einzug neuer Absatz unterbinden
+\usepackage[]{acronym} % Abkürzungen 
+\usepackage{float}
+\usepackage{microtype}
+%\usepackage{showframe}
+\usepackage{booktabs}
+\usepackage{caption}
+%Literaturverzeichnis Pakete + Anpassungen am Erscheinungsbild
+\usepackage[
+    style=authoryear,
+    autocite=footnote,
+    maxcitenames=3,
+    mincitenames=3,
+    maxbibnames=8,
+    minbibnames=8,
+    ]{biblatex}
+\usepackage{amsmath}    %Mathe Umgebung
+\usepackage{siunitx,etoolbox} %Fett innerhalb Tabellen
+\usepackage{bm} %Fett für Mathe
+\usepackage{svg} %SVG Grafiken
+\usepackage{csquotes}  
+\usepackage{tikz}
+\usetikzlibrary{arrows,automata,positioning}
+\usepackage[hang]{footmisc}
+\setlength{\footnotemargin}{4mm}
+
+\addbibresource{literatur.bib} % Datei mit Literaturverzeichnis
+
+\renewcommand*{\newunitpunct}{\addcomma\space}
+\renewcommand*{\finentrypunct}{}
+
+\DeclareFieldFormat[book]{title}{\mkbibquote{#1\isdot}}
+
+\DeclareNameAlias{default}{family-given}
+\DeclareNameAlias{sortname}{default}
+
+\DeclareListWrapperFormat{location}{\mkbibparens{#1}}
+
+\DefineBibliographyStrings{german}{
+  andothers = {et al\adddot},
+  nodate    = {o.J\adddot},
+}
+
+\DeclareDelimFormat{nameyeardelim}{\addcomma\space}
+\DeclareDelimFormat[bib]{nameyeardelim}{\addcomma\space}
+
+\renewbibmacro*{cite:label}{%
+  \printtext[bibhyperref]{\printfield{label}}}
+    
+\newbibmacro*{cite:labeltitle}{%
+  \printtext[bibhyperref]{\printfield[citetitle]{labeltitle}}}
+
+\renewbibmacro*{cite}{%
+  \iffieldundef{shorthand}
+    {\ifthenelse{\ifnameundef{labelname}}
+       {\usebibmacro{cite:label}%
+        \setunit{\printdelim{nonameyeardelim}}}
+       {\printnames{labelname}%
+        \setunit{\printdelim{nameyeardelim}}}%
+     \ifboolexpr{   test {\iffieldundef{labelyear}}
+                 or test {\iffieldequalstr{labelyear}{nodate}}}
+       {\usebibmacro{cite:labeltitle}}
+       {\usebibmacro{cite:labeldate+extradate}}}
+    {\usebibmacro{cite:shorthand}}}
+
+\DeclareDelimFormat{multinamedelim}{\slash}
+\DeclareDelimAlias{finalnamedelim}{multinamedelim}
