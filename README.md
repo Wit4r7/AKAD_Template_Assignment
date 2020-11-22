@@ -1,6 +1,6 @@
 # AKAD Template Assignment in LaTeX
 
-Hier ist meine aktuelle Vorlage zu finden, welche ich für meine Hausarbeiten /Assignments an der AKAD Universität Stuttgart verwende. Ich nutze hierfür LaTeX. Im speziellen verwende ich overleaf.com um meine Arbeiten zu schreiben.
+Hier ist meine aktuelle Vorlage zu finden, welche ich für meine Hausarbeiten /Assignments an der AKAD Universität Stuttgart verwende. Ich nutze hierfür LaTeX. Im speziellen verwende ich www.overleaf.com um meine Arbeiten zu schreiben.
 
 Die Vorlage ist auf Grundlage der geltenen Vorgaben für Assignments entwickelt und wird angepasst, sollte ein Dozent mal Anmerkungen haben. Jeder ist aber selbst für die Abgabe der Arbeit zuständig. 
 
